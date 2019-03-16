@@ -8,8 +8,6 @@ import {Pagination} from "./pagination";
 interface Props {
 }
 
-// We define members as a state (the compoment holding this will be a container
-// component)
 interface State {
     members: Array<MemberEntity>,
     organizationName: string,
@@ -17,7 +15,6 @@ interface State {
     itemsPerPage: number,
 }
 
-// Nice tsx guide: https://github.com/Microsoft/TypeScript/wiki/JSX
 export class MembersTableComponent extends React.Component<Props, State> {
 
     constructor(props: Props) {
@@ -38,6 +35,10 @@ export class MembersTableComponent extends React.Component<Props, State> {
 
     onPageChange = page => {
         this.setState({...this.state, page});
+    }
+
+    componentDidMount() {
+        this.loadMembers();
     }
 
     componentDidUpdate(prevProps, prevState:State) {

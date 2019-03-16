@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import {MemberEntity} from '../../model/member';
+import {Link} from "react-router-dom";
 
 const styles = {
     card: {
@@ -31,9 +32,11 @@ export const MemberRowInner = (props: Props) => {
                     title={props.member.login}
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {props.member.login}
-                    </Typography>
+                    <Link to={`/detail/${props.member.login}`}>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            {props.member.login}
+                        </Typography>
+                    </Link>
                     <Typography component="p">
                         {props.member.id}
                     </Typography>
